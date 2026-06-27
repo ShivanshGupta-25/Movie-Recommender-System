@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from backend.schemas import MovieResponse
 from ml.recommender import MovieRecommender
 import time
+from backend.utils import cache_stats
 
 router = APIRouter()
 
@@ -14,6 +15,10 @@ def root():
         "message": "Movie Recommendation API",
         "version": "1.0.0"
     }
+
+@router.get("/cache")
+def cache_stats():
+    return cache_stats()
 
 @router.get("/health")
 def health():

@@ -3,11 +3,8 @@ from backend.routes import router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
-
     title="Movie Recommendation API",
-
     version="1.0.0",
-
     description="""
 Production Ready Movie Recommendation System
 
@@ -24,45 +21,16 @@ Built using
 • Pickle Models
 
 """,
-
-    contact={
-
-        "name":"Shivansh Gupta",
-
-        "email":"your_email@gmail.com"
-
-    },
-
-    license_info={
-
-        "name":"MIT"
-
-    }
-
+    contact={"name": "Shivansh Gupta", "email": "your_email@gmail.com"},
+    license_info={"name": "MIT"},
 )
 
 app.add_middleware(
-
     CORSMiddleware,
-
-    allow_origins=[
-
-        "http://localhost:5173"
-
-    ],
-
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
-
     allow_methods=["*"],
-
-    allow_headers=["*"]
-
+    allow_headers=["*"],
 )
 
-app.include_router(
-
-    router,
-
-    prefix="/api/v1"
-
-)
+app.include_router(router, prefix="/api/v1")
