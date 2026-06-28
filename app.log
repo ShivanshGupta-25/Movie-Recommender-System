@@ -1,3 +1,51 @@
 2026-06-28 13:03:27,484 | WARNING | email-validator not installed, email fields will be treated as str.
 To install, run: pip install email-validator
 2026-06-28 13:03:40,511 | INFO | Generated 10 recommendations.
+2026-06-28 14:01:17,490 | INFO | Cache hit for 'iron'
+2026-06-28 14:02:19,484 | INFO | Cache hit for 'iron'
+2026-06-28 14:02:20,546 | INFO | Cache hit for 'ironmain'
+2026-06-28 14:13:45,624 | INFO | Cache hit for 'iron'
+2026-06-28 14:15:47,709 | INFO | Cache hit for 'inter'
+2026-06-28 14:16:41,014 | INFO | Cache hit for 'iron'
+2026-06-28 14:20:09,900 | INFO | Cache hit for 'rion'
+2026-06-28 14:20:18,404 | INFO | Cache hit for 'rion'
+2026-06-28 14:35:58,493 | WARNING | TMDB lookup failed for 'Prison': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:02,521 | WARNING | TMDB lookup failed for 'Partition': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:02,941 | WARNING | TMDB lookup failed for 'Centurion': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:03,377 | WARNING | TMDB lookup failed for 'Legion': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:03,796 | WARNING | TMDB lookup failed for 'Frozen': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:04,211 | WARNING | TMDB lookup failed for 'Eragon': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:16,914 | WARNING | TMDB lookup failed for 'Salt': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:17,342 | WARNING | TMDB lookup failed for 'Rust': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:17,853 | WARNING | TMDB lookup failed for 'Rent': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:19,078 | WARNING | TMDB lookup failed for 'Hits': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:20,409 | WARNING | TMDB lookup failed for 'Bolt': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:20,587 | WARNING | TMDB lookup failed for 'Drumline': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:20,893 | WARNING | TMDB lookup failed for 'Bats': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:21,043 | WARNING | TMDB lookup failed for 'Criminal': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:21,361 | WARNING | TMDB lookup failed for 'Bait': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:21,851 | WARNING | TMDB lookup failed for 'Antz': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:22,488 | WARNING | TMDB lookup failed for 'Prom': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:24,357 | WARNING | TMDB lookup failed for 'Frida': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:24,582 | WARNING | TMDB lookup failed for 'Iron Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:25,161 | WARNING | TMDB lookup failed for 'Hitman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:26,867 | WARNING | TMDB lookup failed for 'Illuminata': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:27,037 | WARNING | TMDB lookup failed for 'Nine': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:27,660 | WARNING | TMDB lookup failed for 'Mirrors': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:28,275 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:28,280 | WARNING | TMDB lookup failed for 'Freedom': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:28,435 | WARNING | TMDB lookup failed for 'Kids': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:28,859 | WARNING | TMDB lookup failed for 'Iron Man 2': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:29,010 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:29,020 | WARNING | TMDB lookup failed for 'Iris': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:29,340 | WARNING | TMDB lookup failed for 'Swimfan': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:29,850 | WARNING | TMDB lookup failed for 'Bronson': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:31,799 | WARNING | TMDB lookup failed for 'ParaNorman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:33,083 | WARNING | TMDB lookup failed for 'Bronson': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:47,394 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:48,022 | WARNING | TMDB lookup failed for 'Iron Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:49,589 | WARNING | TMDB lookup failed for 'Inside Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:51,047 | WARNING | TMDB lookup failed for 'Grown Ups 2': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:51,704 | WARNING | TMDB lookup failed for 'Repo Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:52,303 | WARNING | TMDB lookup failed for 'Rain Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-28 14:36:52,958 | WARNING | TMDB lookup failed for 'Ironclad': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))

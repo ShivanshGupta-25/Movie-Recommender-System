@@ -6,6 +6,7 @@ from backend.logger import logger
 from backend.cache import recommendation_cache
 from backend.cache import search_cache
 import logging
+from backend.services.search_service import search_movie_details
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_DIR = BASE_DIR / "models"
@@ -88,9 +89,21 @@ class MovieRecommender:
 
         matches = difflib.get_close_matches(query, self.titles, n=10, cutoff=0.4)
 
-        search_cache[cache_key] = matches
+        enriched_movies = []
 
-        return matches
+        for title in matches:
+            try:
+                movie = search_movie_details(title)
+
+                if movie:
+                    enriched_movies.append(movie)
+
+            except Exception as e:
+                logger.warning(f"TMDB lookup failed for '{title}': {e}")
+
+        search_cache[cache_key] = enriched_movies
+
+        return enriched_movies
 
     def get_movie(self, title):
 

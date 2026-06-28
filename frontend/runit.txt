@@ -1,0 +1,29 @@
+In root directory
+
+``` cd frontend
+
+npm create vite@latest .
+
+react -> javascript - > ESLint
+
+npm install
+
+npm install axios
+
+npm install react-router-dom
+
+npm install react-icons
+
+npm install lucide-react
+
+npm install framer-motion
+
+npm install
+
+npm install -D tailwindcss @tailwindcss/vite```
+
+TailwindCSS
+
+React Query
+
+React Hook Form
