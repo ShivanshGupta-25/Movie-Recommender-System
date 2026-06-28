@@ -5,3 +5,4 @@ fastapi
 uvicorn
 pickle5
 pytest
+requests
