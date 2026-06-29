@@ -50,3 +50,149 @@ export const removeFavorite = (id) => {
 
     return updated;
 };
+
+/* -------------------------------
+        WATCHLIST
+-------------------------------- */
+
+const WATCHLIST_KEY = "movieai_watchlist";
+
+export const getWatchlist = () => {
+
+    try {
+
+        const data = localStorage.getItem(WATCHLIST_KEY);
+
+        return data ? JSON.parse(data) : [];
+
+    } catch {
+
+        return [];
+
+    }
+
+};
+
+export const saveWatchlist = (movies) => {
+
+    localStorage.setItem(
+
+        WATCHLIST_KEY,
+
+        JSON.stringify(movies)
+
+    );
+
+};
+
+export const addWatchlist = (movie) => {
+
+    const movies = getWatchlist();
+
+    if (movies.find((m) => m.id === movie.id)) {
+
+        return movies;
+
+    }
+
+    const updated = [movie, ...movies];
+
+    saveWatchlist(updated);
+
+    return updated;
+
+};
+
+export const removeWatchlist = (id) => {
+
+    const updated = getWatchlist().filter(
+
+        (movie) => movie.id !== id
+
+    );
+
+    saveWatchlist(updated);
+
+    return updated;
+
+};
+
+export const isWatchlisted = (id) => {
+
+    return getWatchlist().some(
+
+        (movie) => movie.id === id
+
+    );
+
+};
+
+/* -------------------------------
+        recently watched
+-------------------------------- */
+
+/* ======================================
+        RECENTLY VIEWED
+====================================== */
+
+const RECENT_KEY = "movieai_recent";
+
+export const getRecentlyViewed = () => {
+
+    try {
+
+        const data = localStorage.getItem(RECENT_KEY);
+
+        return data ? JSON.parse(data) : [];
+
+    } catch {
+
+        return [];
+
+    }
+
+};
+
+export const saveRecentlyViewed = (movies) => {
+
+    localStorage.setItem(
+
+        RECENT_KEY,
+
+        JSON.stringify(movies)
+
+    );
+
+};
+
+export const addRecentlyViewed = (movie) => {
+
+    let movies = getRecentlyViewed();
+
+    // Remove duplicate
+
+    movies = movies.filter(
+
+        (m) => m.id !== movie.id
+
+    );
+
+    // Add latest on top
+
+    movies.unshift(movie);
+
+    // Keep only last 20
+
+    movies = movies.slice(0, 20);
+
+    saveRecentlyViewed(movies);
+
+    return movies;
+
+};
+
+export const clearRecentlyViewed = () => {
+
+    localStorage.removeItem(RECENT_KEY);
+
+};

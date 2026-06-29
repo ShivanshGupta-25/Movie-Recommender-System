@@ -5,96 +5,95 @@ import { motion } from "framer-motion";
 import MovieCarousel from "../MovieCarousel/MovieCarousel";
 
 const MovieSection = ({
-  title,
-  subtitle,
-  movies = [],
-  loading = false,
-  viewAllLink = null,
+    title,
+    subtitle,
+    movies = [],
+    loading = false,
+    viewAllLink = null,
+    isRecentlyViewed = false,
 }) => {
 
-  if (!loading && movies.length === 0) return null;
+    if (!loading && movies.length === 0) return null;
 
-  return (
+    return (
 
-    <motion.section
+        <motion.section
 
-      initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 40 }}
 
-      whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
 
-      viewport={{ once: true }}
+            viewport={{ once: true }}
 
-      transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5 }}
 
-      className="mb-16"
+            className="mb-16"
 
-    >
+        >
 
-      {/* Header */}
+            {/* Header */}
 
-      <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6">
 
-        <div>
+                <div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white">
 
-            {title}
+                        {title}
 
-          </h2>
+                    </h2>
 
-          {
+                    {
 
-            subtitle && (
+                        subtitle && (
 
-              <p className="text-slate-400 mt-2">
+                            <p className="text-slate-400 mt-2">
 
-                {subtitle}
+                                {subtitle}
 
-              </p>
+                            </p>
 
-            )
+                        )
 
-          }
+                    }
 
-        </div>
+                </div>
 
-        {
+                {
 
-          viewAllLink && (
+                    viewAllLink && (
 
-            <Link
+                        <Link
 
-              to={viewAllLink}
+                            to={viewAllLink}
 
-              className="hidden md:flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold transition"
+                            className="hidden md:flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold transition"
 
-            >
+                        >
 
-              View All
+                            View All
 
-              <ChevronRight size={18} />
+                            <ChevronRight size={18} />
 
-            </Link>
+                        </Link>
 
-          )
+                    )
 
-        }
+                }
 
-      </div>
+            </div>
 
-      {/* Movies */}
+            {/* Movies */}
 
-      <MovieCarousel
+            <MovieCarousel
+                movies={movies}
+                loading={loading}
+                isRecentlyViewed={isRecentlyViewed}
+            />
 
-        movies={movies}
+        </motion.section>
 
-        loading={loading}
-
-      />
-
-    </motion.section>
-
-  );
+    );
 
 };
 

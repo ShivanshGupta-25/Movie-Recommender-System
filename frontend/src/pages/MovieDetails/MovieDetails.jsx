@@ -1,10 +1,20 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import useMovieDetails from "../../hooks/useMovieDetails";
+import { useRecentlyViewedContext } from "../../Context/RecentlyViewedContext";
 
 const MovieDetails = () => {
   const { title } = useParams();
 
+  const { addMovie } = useRecentlyViewedContext();
+  
   const { movie, loading, error } = useMovieDetails(title);
+
+  useEffect(() => {
+    if (movie) {
+      addMovie(movie);
+    }
+  }, [movie]);
 
   if (loading) {
     return (

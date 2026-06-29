@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import MovieDetails from "../pages/MovieDetails/MovieDetails";
 import Favorites from "../pages/Favorites/Favorite";
+import Watchlist from "../pages/Watchlist/Watchlist";
+import RecentlyViewed from "../pages/RecentlyViewed/RecentlyViewed";
 import NotFound from "../pages/NotFound/NotFound";
 
 const AppRoutes = () => {
@@ -17,6 +19,10 @@ const AppRoutes = () => {
                 />
 
                 <Route path="/favorites" element={<Favorites />} />
+
+                <Route path="/watchlist" element={<Watchlist />} />
+
+                <Route path="/recently-viewed" element={<RecentlyViewed />} />
 
                 <Route
                     path="*"

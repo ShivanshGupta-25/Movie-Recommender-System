@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 
 import MovieCard from "../MovieCard/MovieCard";
 
-const MovieCarousel = ({ movies = [] }) => {
+const MovieCarousel = ({
+    movies = [],
+    loading = false,
+    isRecentlyViewed = false,
+}) => {
 
     const sliderRef = useRef(null);
 
@@ -169,11 +173,9 @@ const MovieCarousel = ({ movies = [] }) => {
                         >
 
                             <MovieCard
-
                                 movie={movie}
-
+                                isRecentlyViewed={isRecentlyViewed}
                             />
-
                         </div>
 
                     ))

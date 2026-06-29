@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import WatchlistButton from "../WatchlistButton/WatchlistButton";
 import {
   Star,
   Calendar,
@@ -12,7 +13,10 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 const PLACEHOLDER =
   "https://dummyimage.com/500x750/111827/ffffff&text=No+Poster";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({
+  movie,
+  isRecentlyViewed = false,
+ }) => {
 
   const poster =
     movie.poster ||
@@ -127,30 +131,19 @@ const MovieCard = ({ movie }) => {
 
           {/* Watchlist */}
 
-          <button
-            onClick={(e) => e.preventDefault()}
+          <div
             className="
-            absolute
-            top-16
-            left-3
-            w-10
-            h-10
-            rounded-full
-            bg-black/60
-            backdrop-blur
-            flex
-            items-center
-            justify-center
-            opacity-0
-            group-hover:opacity-100
-            transition
-            hover:bg-blue-600
+              absolute
+              top-16
+              left-3
+              opacity-0
+              group-hover:opacity-100
+              transition
+              z-20
             "
           >
-
-            <BookmarkPlus size={18} />
-
-          </button>
+            <WatchlistButton movie={movie} />
+          </div>
 
           {/* Bottom Info */}
 
@@ -267,11 +260,16 @@ const MovieCard = ({ movie }) => {
               font-semibold
               "
             >
-
-              <Info size={18} />
-
-              View Details
-
+              {isRecentlyViewed ? (
+                <>
+                  ▶ Continue Watching
+                </>
+              ) : (
+                <>
+                  <Info size={18} />
+                  View Details
+                </>
+              )}
             </button>
 
           </div>

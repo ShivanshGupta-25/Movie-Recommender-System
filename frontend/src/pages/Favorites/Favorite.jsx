@@ -2,7 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import MovieSection from "../../components/MovieSection/MovieSection";
 
-import { useFavoritesContext } from "../../context/FavoritesContext";
+import { useFavoritesContext } from "../../Context/FavoritesContext";
 
 const Favorites = () => {
 
