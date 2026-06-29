@@ -1,7 +1,12 @@
 from fastapi import APIRouter, HTTPException
 from backend.schemas import MovieResponse
 from ml.recommender import MovieRecommender
-from backend.services.recommender_service import get_recommendations
+from backend.services.recommender_service import (
+    get_recommendations,
+    top_movies,
+    trending_movies,
+    home_movies,
+)
 import time
 from backend.utils import cache_stats
 
@@ -33,35 +38,25 @@ def health():
         tags=["Movie Recommendation"],
         response_model=MovieResponse)
 def recommend(movie: str):
-
-    # start_time = time.time()
-    # recommendations = recommender.recommend(movie)
-    # end = time.time()
-
-    # processing_time = round((end - start_time) * 1000)
-    # if not recommendations:
-    #     raise HTTPException(
-    #         status_code=404,
-    #         detail="Movie not found"
-    #     )
-
-    # return {
-
-    #     "success": True,
-
-    #     "movie": movie,
-
-    #     "processing_time_ms": processing_time,
-
-    #     "total": len(recommendations),
-
-    #     "recommendations": recommendations
-
-    # }
     return {
         "movie": movie,
         "recommendations": get_recommendations(movie)
     }
+
+@router.get("/top")
+def top():
+
+    return top_movies()
+
+
+@router.get("/trending")
+def trending():
+
+    return trending_movies()
+
+@router.get("/home")
+def home():
+    return home_movies()
 
 @router.get("/search")
 def search(q: str):

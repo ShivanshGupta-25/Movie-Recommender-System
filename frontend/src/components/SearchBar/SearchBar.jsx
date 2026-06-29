@@ -5,7 +5,7 @@ import useDebounce from "../../hooks/useDebounce";
 import SearchSuggestion from "./SearchSuggestion";
 import { searchMovies } from "../../services/movieApi";
 
-const SearchBar = ({ onMovieSelect }) => {
+const SearchBar = ({ onSearch, onMovieSelect }) => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,11 +18,11 @@ const SearchBar = ({ onMovieSelect }) => {
   const inputRef = useRef(null);
 
   // -------------------------
-  // Search Movies
+  // Search Suggestions
   // -------------------------
   useEffect(() => {
     const fetchMovies = async () => {
-      if (!debouncedQuery?.trim()) {
+      if (!debouncedQuery.trim()) {
         setMovies([]);
         return;
       }
@@ -31,12 +31,11 @@ const SearchBar = ({ onMovieSelect }) => {
         setLoading(true);
 
         const data = await searchMovies(debouncedQuery);
-        console.log(data);
 
-        setMovies(data);
+        setMovies(data || []);
         setShowSuggestions(true);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -49,10 +48,10 @@ const SearchBar = ({ onMovieSelect }) => {
   // Click Outside
   // -------------------------
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (e) => {
       if (
         wrapperRef.current &&
-        !wrapperRef.current.contains(event.target)
+        !wrapperRef.current.contains(e.target)
       ) {
         setShowSuggestions(false);
       }
@@ -68,9 +67,30 @@ const SearchBar = ({ onMovieSelect }) => {
   }, []);
 
   // -------------------------
+  // Submit Search
+  // -------------------------
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!query.trim()) return;
+
+    if (onSearch) {
+      onSearch(query);
+    }
+  };
+
+  // -------------------------
   // Keyboard Navigation
   // -------------------------
   const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (selectedIndex >= 0) {
+        e.preventDefault();
+        handleMovieClick(movies[selectedIndex]);
+      }
+      return;
+    }
+
     if (!movies.length) return;
 
     switch (e.key) {
@@ -86,12 +106,6 @@ const SearchBar = ({ onMovieSelect }) => {
         setSelectedIndex((prev) =>
           prev > 0 ? prev - 1 : 0
         );
-        break;
-
-      case "Enter":
-        if (selectedIndex >= 0) {
-          handleMovieClick(movies[selectedIndex]);
-        }
         break;
 
       case "Escape":
@@ -113,6 +127,10 @@ const SearchBar = ({ onMovieSelect }) => {
     if (onMovieSelect) {
       onMovieSelect(movie);
     }
+
+    if (onSearch) {
+      onSearch(movie.title);
+    }
   };
 
   // -------------------------
@@ -122,87 +140,136 @@ const SearchBar = ({ onMovieSelect }) => {
     setQuery("");
     setMovies([]);
     setSelectedIndex(-1);
-    inputRef.current.focus();
+    setShowSuggestions(false);
+    inputRef.current?.focus();
   };
 
   return (
-    <div
+    <form
       ref={wrapperRef}
+      onSubmit={handleSubmit}
       className="relative w-full max-w-4xl mx-auto"
     >
-      {/* Search Box */}
-
-      <div className="flex items-center bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-
+      <div
+        className="
+        flex
+        items-center
+        bg-white
+        rounded-2xl
+        shadow-2xl
+        overflow-hidden
+        border
+        border-gray-200
+        transition-all
+        duration-300
+        focus-within:ring-4
+        focus-within:ring-red-200
+        focus-within:border-red-400
+      "
+      >
         <Search
           size={22}
           className="ml-5 text-gray-400"
         />
 
         <input
-            ref={inputRef}
-            value={query}
-            onChange={(e)=>{
-                setQuery(e.target.value);
-                setShowSuggestions(true);
-                setSelectedIndex(-1);
-            }}
-            onKeyDown={handleKeyDown}
-            type="text"
-            placeholder="Search any movie..."
-            className="flex-1 px-6 py-5 text-lg outline-none"
+          ref={inputRef}
+          type="text"
+          value={query}
+          placeholder="Search your favourite movie..."
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setShowSuggestions(true);
+            setSelectedIndex(-1);
+          }}
+          onKeyDown={handleKeyDown}
+          className="
+          flex-1
+          px-6
+          py-5
+          text-lg
+          text-gray-900
+          placeholder:text-gray-400
+          bg-transparent
+          outline-none
+          caret-red-500
+        "
         />
 
         {loading && (
           <Loader2
-            className="animate-spin text-gray-500 mr-4"
             size={20}
+            className="animate-spin text-gray-500 mr-4"
           />
         )}
 
         {!loading && query && (
           <button
+            type="button"
             onClick={clearSearch}
-            className="mr-3 text-gray-500 hover:text-red-500"
+            className="
+            mr-2
+            p-2
+            rounded-full
+            text-gray-400
+            hover:bg-gray-100
+            hover:text-red-500
+            transition
+          "
           >
             <X size={20} />
           </button>
         )}
 
         <button
+          type="submit"
           className="
-          bg-red-600
-          hover:bg-red-700
-          transition
-          duration-300
+          group
+          flex
+          items-center
+          gap-2
           px-8
-          py-4
+          py-5
+          mr-1
+          rounded-xl
+          bg-gradient-to-r
+          from-red-600
+          to-red-500
+          hover:from-red-700
+          hover:to-red-600
+          active:scale-95
+          transition-all
+          duration-300
+          shadow-lg
+          hover:shadow-red-500/40
           text-white
           font-semibold
-          "
+        "
         >
+          <Search
+            size={18}
+            className="group-hover:rotate-12 transition-transform"
+          />
           Search
         </button>
       </div>
 
-      {/* Suggestions */}
-
       {showSuggestions && query && (
         <div
-        className="
-        absolute
-        left-0
-        right-0
-        mt-4
-        bg-gray-900
-        rounded-2xl
-        shadow-2xl
-        border
-        border-gray-700
-        overflow-hidden
-        max-h-[450px]
-        overflow-y-auto
-        z-50
+          className="
+          absolute
+          left-0
+          right-0
+          mt-4
+          bg-gray-900
+          rounded-2xl
+          shadow-2xl
+          border
+          border-gray-700
+          overflow-hidden
+          max-h-[450px]
+          overflow-y-auto
+          z-50
         "
         >
           {loading ? (
@@ -211,16 +278,20 @@ const SearchBar = ({ onMovieSelect }) => {
             </div>
           ) : movies.length ? (
             movies.map((movie, index) => (
-                <div
-                    key={movie.id ?? `${movie.title}-${index}`}
-                    className={selectedIndex === index ? "bg-gray-700" : ""}
-                >
-                    <SearchSuggestion
-                    movie={movie}
-                    onClick={handleMovieClick}
-                    />
-                </div>
-                ))
+              <div
+                key={movie.id ?? `${movie.title}-${index}`}
+                className={
+                  selectedIndex === index
+                    ? "bg-gray-700"
+                    : ""
+                }
+              >
+                <SearchSuggestion
+                  movie={movie}
+                  onClick={handleMovieClick}
+                />
+              </div>
+            ))
           ) : (
             <div className="p-8 text-center text-gray-400">
               No movies found
@@ -228,8 +299,7 @@ const SearchBar = ({ onMovieSelect }) => {
           )}
         </div>
       )}
-    </div>
+    </form>
   );
 };
-
 export default SearchBar;

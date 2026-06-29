@@ -1,6 +1,7 @@
-import requests
 import os
+import requests
 from dotenv import load_dotenv
+from rapidfuzz import fuzz
 
 load_dotenv()
 
@@ -10,7 +11,7 @@ BASE_URL = "https://api.themoviedb.org/3"
 
 def search_movie_details(title: str):
     """
-    Returns complete TMDB information for a movie title.
+    Search TMDB and return the movie that best matches the title.
     """
 
     url = f"{BASE_URL}/search/movie"
@@ -31,7 +32,14 @@ def search_movie_details(title: str):
     if not results:
         return None
 
-    movie = results[0]
+    # Pick the closest title instead of blindly taking the first one
+    movie = max(
+        results,
+        key=lambda m: fuzz.ratio(
+            title.lower(),
+            m["title"].lower()
+        )
+    )
 
     return {
         "id": movie["id"],

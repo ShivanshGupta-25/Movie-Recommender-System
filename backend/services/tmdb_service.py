@@ -136,24 +136,82 @@ def fetch_movie(title: str):
 
     return format_movie(details)
 
-# def fetch_movie(title: str):
-#     print("Searching...")
-#     movie = search_movie(title)
+def get_top_rated_movies(limit: int = 20):
 
-#     print(movie)
+    try:
+        url = f"{BASE_URL}/movie/top_rated"
 
-#     if movie is None:
-#         print("Search failed")
-#         return None
+        response = requests.get(
+            url,
+            params={
+                "api_key": API_KEY,
+                "page": 1,
+            },
+            timeout=10,
+        )
 
-#     print("Fetching details...")
-#     details = get_movie_details(movie["id"])
+        response.raise_for_status()
 
-#     print(details)
+        results = response.json().get("results", [])
 
-#     if details is None:
-#         print("Details failed")
-#         return None
+        movies = []
 
-#     print("Formatting...")
-#     return format_movie(details)
+        for movie in results[:limit]:
+
+            movies.append({
+                "id": movie.get("id"),
+                "title": movie.get("title"),
+                "overview": movie.get("overview"),
+                "poster": IMAGE_BASE + movie["poster_path"] if movie.get("poster_path") else None,
+                "backdrop": IMAGE_BASE + movie["backdrop_path"] if movie.get("backdrop_path") else None,
+                "rating": movie.get("vote_average"),
+                "vote_count": movie.get("vote_count"),
+                "release_date": movie.get("release_date"),
+                "genres": [],
+            })
+
+        return movies
+
+    except Exception as e:
+        print("TOP MOVIES ERROR:", e)
+        return []
+    
+    
+def get_trending_movies(limit: int = 20):
+
+    try:
+        url = f"{BASE_URL}/trending/movie/week"
+
+        response = requests.get(
+            url,
+            params={
+                "api_key": API_KEY,
+            },
+            timeout=10,
+        )
+
+        response.raise_for_status()
+
+        results = response.json().get("results", [])
+
+        movies = []
+
+        for movie in results[:limit]:
+
+            movies.append({
+                "id": movie.get("id"),
+                "title": movie.get("title"),
+                "overview": movie.get("overview"),
+                "poster": IMAGE_BASE + movie["poster_path"] if movie.get("poster_path") else None,
+                "backdrop": IMAGE_BASE + movie["backdrop_path"] if movie.get("backdrop_path") else None,
+                "rating": movie.get("vote_average"),
+                "vote_count": movie.get("vote_count"),
+                "release_date": movie.get("release_date"),
+                "genres": [],
+            })
+
+        return movies
+
+    except Exception as e:
+        print("TRENDING ERROR:", e)
+        return []

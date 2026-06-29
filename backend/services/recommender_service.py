@@ -1,44 +1,11 @@
-# from ml.recommender import MovieRecommender
-# from fastapi import APIRouter, HTTPException
-# from backend.schemas import MovieResponse
-# import time
-# from backend.utils import cache_stats
-
-
-# recommender = MovieRecommender()
-
-
-# def get_recommendations(movie_name: str, limit: int = 10):
-
-#     start_time = time.time()
-#     recommendations = recommender.recommend(movie_name)
-#     end = time.time()
-
-#     processing_time = round((end - start_time) * 1000)
-#     if not recommendations:
-#         raise HTTPException(
-#             status_code=404,
-#             detail="Movie not found"
-#         )
-
-#     return {
-
-#         "success": True,
-
-#         "movie": movie_name,
-
-#         "processing_time_ms": processing_time,
-
-#         "total": len(recommendations),
-
-#         "recommendations": recommendations
-
-#     }
-
 from concurrent.futures import ThreadPoolExecutor
 
 from ml.recommender import MovieRecommender
-from backend.services.tmdb_service import fetch_movie
+from backend.services.tmdb_service import (
+    fetch_movie,
+    get_top_rated_movies,
+    get_trending_movies,
+)
 
 recommender = MovieRecommender()
 
@@ -91,3 +58,18 @@ def search_movies(query: str):
 def get_movie(title: str):
 
     return fetch_movie(title)
+
+def top_movies():
+
+    return get_top_rated_movies()
+
+
+def trending_movies():
+
+    return get_trending_movies()
+
+def home_movies():
+    return {
+        "top": get_top_rated_movies(),
+        "trending": get_trending_movies(),
+    }

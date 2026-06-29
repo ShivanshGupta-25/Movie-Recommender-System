@@ -1,5 +1,6 @@
 import pickle
 import difflib
+from rapidfuzz import process, fuzz
 from pathlib import Path
 from fastapi import HTTPException
 from backend.logger import logger
@@ -79,26 +80,89 @@ class MovieRecommender:
 
     def search(self, query):
 
-        cache_key = query.lower()
+        cache_key = query.lower().strip()
 
         if cache_key in search_cache:
-
             logger.info(f"Cache hit for '{query}'")
-
             return search_cache[cache_key]
 
-        matches = difflib.get_close_matches(query, self.titles, n=10, cutoff=0.4)
+        if not cache_key:
+            return []
+
+        # ----------------------------
+        # Priority 1 : Starts With
+        # ----------------------------
+
+        startswith_matches = [
+            title
+            for title in self.titles
+            if title.lower().startswith(cache_key)
+        ]
+
+        # ----------------------------
+        # Priority 2 : Contains
+        # ----------------------------
+
+        contains_matches = [
+            title
+            for title in self.titles
+            if cache_key in title.lower()
+            and title not in startswith_matches
+        ]
+
+        # ----------------------------
+        # Priority 3 : Fuzzy Search
+        # ----------------------------
+
+        fuzzy_results = process.extract(
+            query,
+            self.titles,
+            scorer=fuzz.WRatio,
+            limit=20,
+        )
+
+        fuzzy_matches = [
+            title
+            for title, score, _ in fuzzy_results
+            if score >= 65
+        ]
+
+        # ----------------------------
+        # Merge all matches
+        # ----------------------------
+
+        final_titles = []
+
+        for group in [
+            startswith_matches,
+            contains_matches,
+            fuzzy_matches,
+        ]:
+
+            for title in group:
+
+                if title not in final_titles:
+
+                    final_titles.append(title)
+
+        # ----------------------------
+        # TMDB Enrichment
+        # ----------------------------
 
         enriched_movies = []
 
-        for title in matches:
+        for title in final_titles[:10]:
+
             try:
+
                 movie = search_movie_details(title)
 
                 if movie:
+
                     enriched_movies.append(movie)
 
             except Exception as e:
+
                 logger.warning(f"TMDB lookup failed for '{title}': {e}")
 
         search_cache[cache_key] = enriched_movies
