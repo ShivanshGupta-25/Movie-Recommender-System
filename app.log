@@ -163,3 +163,119 @@ To install, run: pip install email-validator
 To install, run: pip install email-validator
 2026-06-29 15:25:06,285 | WARNING | email-validator not installed, email fields will be treated as str.
 To install, run: pip install email-validator
+2026-06-29 16:12:24,431 | WARNING | TMDB lookup failed for 'Avengers: Age of Ultron': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:26,671 | WARNING | TMDB lookup failed for 'The Avengers': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:28,153 | WARNING | TMDB lookup failed for 'Angels & Demons': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:28,740 | WARNING | TMDB lookup failed for 'The Toxic Avenger': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:29,576 | WARNING | TMDB lookup failed for 'Ant-Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:33,964 | INFO | Generated 10 recommendations.
+2026-06-29 16:12:34,845 | WARNING | TMDB lookup failed for 'Avengers: Age of Ultron': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:35,542 | WARNING | TMDB lookup failed for 'Pirates of the Caribbean: At World's End': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:36,223 | WARNING | TMDB lookup failed for 'Pirates of the Caribbean: Dead Man's Chest': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:39,664 | WARNING | TMDB lookup failed for 'The Hobbit: The Desolation of Smaug': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:40,776 | WARNING | TMDB lookup failed for 'Prince of Persia: The Sands of Time': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 16:12:44,625 | INFO | Cache hit for 'Avengers: Age of Ultron'
+2026-06-29 17:38:52,826 | INFO | Generated 10 recommendations.
+2026-06-29 17:38:53,944 | WARNING | TMDB lookup failed for 'Pet Sematary': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:38:57,414 | INFO | Cache hit for 'avatar'
+2026-06-29 17:39:02,217 | INFO | Cache hit for 'avatar'
+2026-06-29 17:39:09,763 | INFO | Cache hit for 'avatar'
+2026-06-29 17:39:10,903 | INFO | Cache hit for 'Avatar'
+2026-06-29 17:39:11,624 | INFO | Cache hit for 'Avatar'
+2026-06-29 17:39:14,601 | INFO | Cache hit for 'Avatar'
+2026-06-29 17:39:28,294 | INFO | Cache hit for 'Avatar'
+2026-06-29 17:40:35,692 | INFO | Generated 10 recommendations.
+2026-06-29 17:40:36,959 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:37,898 | WARNING | TMDB lookup failed for 'Iron Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:38,265 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:38,926 | WARNING | TMDB lookup failed for 'Iron Man 2': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:40,125 | WARNING | TMDB lookup failed for 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:41,785 | WARNING | TMDB lookup failed for 'Iron Man 2': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:42,440 | WARNING | TMDB lookup failed for '47 Ronin': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:40:42,487 | WARNING | TMDB lookup failed for 'Harley Davidson and the Marlboro Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 17:46:35,099 | WARNING | TMDB lookup failed for 'Iron Man 3': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Iron+Man+3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD70E90>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,102 | WARNING | TMDB lookup failed for 'Iron Man': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Iron+Man (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD71580>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,104 | WARNING | TMDB lookup failed for 'Iron Man 2': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Iron+Man+2 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD72030>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,105 | WARNING | TMDB lookup failed for 'Ironclad': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Ironclad (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD728A0>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,106 | WARNING | TMDB lookup failed for 'The Iron Giant': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=The+Iron+Giant (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD72510>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,107 | WARNING | TMDB lookup failed for 'The Man in the Iron Mask': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=The+Man+in+the+Iron+Mask (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD71220>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,109 | WARNING | TMDB lookup failed for 'Gridiron Gang': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Gridiron+Gang (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD71100>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,110 | WARNING | TMDB lookup failed for 'The Man with the Iron Fists': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=The+Man+with+the+Iron+Fists (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD72930>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,111 | WARNING | TMDB lookup failed for 'The Iron Lady': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=The+Iron+Lady (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD73260>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,113 | WARNING | TMDB lookup failed for 'Avengers: Age of Ultron': HTTPSConnectionPool(host='api.themoviedb.org', port=443): Max retries exceeded with url: /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Avengers%3A+Age+of+Ultron (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002B0ABD73BC0>: Failed to resolve 'api.themoviedb.org' ([Errno 11001] getaddrinfo failed)"))
+2026-06-29 17:46:35,957 | INFO | Generated 10 recommendations.
+2026-06-29 18:16:34,053 | WARNING | TMDB lookup failed for 'Avatar': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:34,643 | WARNING | TMDB lookup failed for 'Terminator Salvation': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:35,292 | WARNING | TMDB lookup failed for 'Avatar': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:35,305 | WARNING | TMDB lookup failed for 'Salvation Boulevard': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:35,996 | WARNING | TMDB lookup failed for 'Stigmata': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:36,037 | WARNING | TMDB lookup failed for 'War': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:36,650 | WARNING | TMDB lookup failed for 'Automata': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:37,238 | WARNING | TMDB lookup failed for 'Illuminata': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:54,116 | WARNING | TMDB lookup failed for 'Avatar': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:54,731 | WARNING | TMDB lookup failed for 'The Adventures of Sharkboy and Lavagirl': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:16:56,844 | INFO | Generated 10 recommendations.
+2026-06-29 18:16:58,665 | WARNING | TMDB lookup failed for 'Force 10 from Navarone': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:17:00,524 | WARNING | TMDB lookup failed for 'Supernova': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:17:01,037 | WARNING | TMDB lookup failed for 'Kabhi Alvida Naa Kehna': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:17:01,653 | WARNING | TMDB lookup failed for 'Paa': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:17:08,073 | INFO | Cache hit for 'avatar'
+2026-06-29 18:17:13,851 | INFO | Generated 10 recommendations.
+2026-06-29 18:19:44,037 | WARNING | TMDB lookup failed for 'Pan': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:44,687 | WARNING | TMDB lookup failed for 'Birdman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:45,411 | WARNING | TMDB lookup failed for 'Ironclad': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:46,203 | WARNING | TMDB lookup failed for 'Iron Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:48,836 | WARNING | TMDB lookup failed for 'The Man with the Iron Fists': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:49,957 | WARNING | TMDB lookup failed for 'Saving Silverman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:50,406 | WARNING | TMDB lookup failed for 'Avengers: Age of Ultron': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:50,607 | WARNING | TMDB lookup failed for 'Pretty Woman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:51,174 | WARNING | TMDB lookup failed for 'Diary of a Mad Black Woman': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:19:53,356 | INFO | Generated 10 recommendations.
+2026-06-29 18:19:57,684 | INFO | Cache hit for 'ironman'
+2026-06-29 18:20:10,227 | INFO | Cache hit for 'iron'
+2026-06-29 18:20:12,381 | INFO | Generated 10 recommendations.
+2026-06-29 18:20:13,755 | WARNING | TMDB lookup failed for 'Iron Man 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:14,515 | WARNING | TMDB lookup failed for 'Iron Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:15,488 | WARNING | TMDB lookup failed for 'Iron Man 2': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:16,108 | WARNING | TMDB lookup failed for 'Kung Fu Panda 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:16,953 | WARNING | TMDB lookup failed for 'The Taking of Pelham 1 2 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:17,572 | WARNING | TMDB lookup failed for 'The Expendables 3': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:18,187 | WARNING | TMDB lookup failed for 'Bicentennial Man': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:19,770 | WARNING | TMDB lookup failed for 'Man on the Moon': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:20:29,352 | INFO | Cache hit for 'ironman'
+2026-06-29 18:20:29,836 | INFO | Cache hit for 'ironman'
+2026-06-29 18:25:20,548 | WARNING | TMDB lookup failed for 'Centurion': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:21,205 | WARNING | TMDB lookup failed for 'Prison': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:21,515 | INFO | Cache hit for 'iron'
+2026-06-29 18:25:22,900 | WARNING | TMDB lookup failed for 'Transformers: Age of Extinction': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:23,485 | WARNING | TMDB lookup failed for 'Terminator Salvation': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:24,202 | INFO | Cache hit for 'ironman'
+2026-06-29 18:25:24,219 | WARNING | TMDB lookup failed for 'Inception': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:24,514 | INFO | Cache hit for 'ironman'
+2026-06-29 18:25:25,231 | WARNING | TMDB lookup failed for 'G.I. Joe: Retaliation': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:28,853 | WARNING | TMDB lookup failed for 'Road to Perdition': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:25:42,933 | INFO | Cache hit for 'ironman'
+2026-06-29 18:25:45,181 | INFO | Cache hit for 'iron'
+2026-06-29 18:25:45,837 | INFO | Cache hit for 'Iron Man 3'
+2026-06-29 18:25:46,639 | INFO | Cache hit for 'Iron Man 3'
+2026-06-29 18:27:34,979 | INFO | Generated 10 recommendations.
+2026-06-29 18:27:35,925 | WARNING | TMDB lookup failed for 'Avatar': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:36,896 | WARNING | TMDB lookup failed for 'War': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:37,513 | WARNING | TMDB lookup failed for 'Pet Sematary': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:45,912 | INFO | Generated 10 recommendations.
+2026-06-29 18:27:46,908 | WARNING | TMDB lookup failed for 'Avengers: Age of Ultron': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:50,579 | WARNING | TMDB lookup failed for 'The Business of Strangers': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:52,010 | WARNING | TMDB lookup failed for 'The Toxic Avenger': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:27:53,488 | WARNING | TMDB lookup failed for 'Clear and Present Danger': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:06,034 | WARNING | TMDB lookup failed for 'Valkyrie': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:06,559 | INFO | Cache hit for 'avengers'
+2026-06-29 18:28:07,093 | INFO | Cache hit for 'avengers'
+2026-06-29 18:28:07,776 | WARNING | TMDB lookup failed for 'Vertical Limit': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:08,620 | WARNING | TMDB lookup failed for 'Vanilla Sky': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:09,454 | WARNING | TMDB lookup failed for 'Valentine's Day': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:10,061 | WARNING | TMDB lookup failed for 'V for Vendetta': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-06-29 18:28:10,256 | INFO | Cache hit for 'avengers'
+2026-06-29 18:28:37,416 | WARNING | email-validator not installed, email fields will be treated as str.
+To install, run: pip install email-validator
+2026-06-29 18:28:52,453 | INFO | Cache hit for 'avengers'
+2026-06-29 18:29:20,658 | INFO | Cache hit for 'avengers'

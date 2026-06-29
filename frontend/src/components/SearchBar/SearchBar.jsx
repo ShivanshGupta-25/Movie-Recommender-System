@@ -33,7 +33,10 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
         const data = await searchMovies(debouncedQuery);
 
         setMovies(data || []);
-        setShowSuggestions(true);
+
+        if (document.activeElement === inputRef.current) {
+          setShowSuggestions(true);
+        }
       } catch (err) {
         console.error(err);
       } finally {
@@ -74,6 +77,10 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
 
     if (!query.trim()) return;
 
+    // Close suggestions
+    setShowSuggestions(false);
+    setSelectedIndex(-1);
+
     if (onSearch) {
       onSearch(query);
     }
@@ -84,10 +91,20 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
   // -------------------------
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
+
       if (selectedIndex >= 0) {
-        e.preventDefault();
         handleMovieClick(movies[selectedIndex]);
+      } else {
+        // Close suggestions
+        setShowSuggestions(false);
+        setSelectedIndex(-1);
+
+        if (query.trim() && onSearch) {
+          onSearch(query);
+        }
       }
+
       return;
     }
 
@@ -110,6 +127,7 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
 
       case "Escape":
         setShowSuggestions(false);
+        setSelectedIndex(-1);
         break;
 
       default:

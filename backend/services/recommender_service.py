@@ -5,22 +5,25 @@ from backend.services.tmdb_service import (
     fetch_movie,
     get_top_rated_movies,
     get_trending_movies,
+    get_popular_movies,
+    get_upcoming_movies,
+    get_now_playing_movies,
 )
 
 recommender = MovieRecommender()
 
 
 def enrich_movie(movie):
+    """
+    Merge recommendation score with TMDB details.
+    """
 
-    title = movie["title"]
+    details = fetch_movie(movie["title"])
 
-    details = fetch_movie(title)
-
-    if details is None:
-
+    if not details:
         return {
-            "title": title,
-            "score": movie["score"]
+            **movie,
+            "poster": None,
         }
 
     details["score"] = movie["score"]
@@ -68,8 +71,32 @@ def trending_movies():
 
     return get_trending_movies()
 
+def popular_movies():
+
+    return get_popular_movies()
+
+
+def upcoming_movies():
+
+    return get_upcoming_movies()
+
+
+def now_playing_movies():
+
+    return get_now_playing_movies()
+
 def home_movies():
+
     return {
+
         "top": get_top_rated_movies(),
+
         "trending": get_trending_movies(),
+
+        "popular": get_popular_movies(),
+
+        "upcoming": get_upcoming_movies(),
+
+        "now_playing": get_now_playing_movies(),
+
     }

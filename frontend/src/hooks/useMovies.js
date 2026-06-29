@@ -7,93 +7,150 @@ import {
 
 const useMovies = () => {
 
-    // Recommended movies
-    const [recommendations, setRecommendations] = useState([]);
-
-    // Top rated movies
+    // Home Movies
     const [topMovies, setTopMovies] = useState([]);
-
-    // Trending movies
     const [trendingMovies, setTrendingMovies] = useState([]);
 
+    // Recommendation Results
+    const [recommendations, setRecommendations] = useState([]);
+
+    // Currently Selected Movie
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const [popularMovies,setPopularMovies]=useState([]);
+
+    const [upcomingMovies,setUpcomingMovies]=useState([]);
+
+    const [nowPlayingMovies,setNowPlayingMovies]=useState([]);
+
+    // UI States
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    // Load Top Rated & Trending when page opens
+    // ----------------------------------
+    // Load Home Movies
+    // ----------------------------------
+
     useEffect(() => {
         loadHomeMovies();
     }, []);
 
     const loadHomeMovies = async () => {
+
         try {
+
             setLoading(true);
             setError("");
 
             const data = await getHomeMovies();
 
             setTopMovies(data.top || []);
+
             setTrendingMovies(data.trending || []);
 
-        } catch (err) {
-            console.error(err);
-            setError("Failed to load home movies.");
-        } finally {
-            setLoading(false);
+            setPopularMovies(data.popular || []);
+
+            setUpcomingMovies(data.upcoming || []);
+
+            setNowPlayingMovies(data.now_playing || []);
+
         }
+
+        catch (err) {
+
+            console.error(err);
+
+            setError("Failed to load home movies.");
+
+        }
+
+        finally {
+
+            setLoading(false);
+
+        }
+
     };
-    // Search suggestions
+
+    // ----------------------------------
+    // Search Suggestions
+    // ----------------------------------
+
     const search = async (query) => {
 
         try {
-
-            setLoading(true);
 
             const data = await searchMovies(query);
 
             return data;
 
-        } catch (err) {
+        }
+
+        catch (err) {
 
             console.error(err);
-            setError("Search failed.");
 
             return [];
-
-        } finally {
-
-            setLoading(false);
 
         }
 
     };
 
-    // Recommendations
+    // ----------------------------------
+    // Recommendation
+    // ----------------------------------
+
     const recommend = async (movie) => {
 
         try {
 
             setLoading(true);
 
-            const data = await getRecommendations(movie);
-
-            // data is already an array
-            setRecommendations(data);
-
             setError("");
 
-        } catch (err) {
+            setSelectedMovie(movie);
+
+            const data = await getRecommendations(movie);
+
+            setRecommendations(data || []);
+
+        }
+
+        catch (err) {
 
             console.error(err);
 
             setError("Recommendation failed.");
 
-        } finally {
+            setRecommendations([]);
+
+        }
+
+        finally {
 
             setLoading(false);
 
         }
 
     };
+
+    // ----------------------------------
+    // Clear Recommendation
+    // ----------------------------------
+
+    const clearRecommendations = () => {
+
+        setRecommendations([]);
+
+        setSelectedMovie(null);
+
+        setError("");
+
+    };
+
+    // ----------------------------------
+    // Return
+    // ----------------------------------
 
     return {
 
@@ -103,13 +160,23 @@ const useMovies = () => {
 
         trendingMovies,
 
+        selectedMovie,
+
         loading,
 
         error,
 
+        popularMovies,
+
+        upcomingMovies,
+
+        nowPlayingMovies,
+
         search,
 
         recommend,
+
+        clearRecommendations,
 
     };
 
