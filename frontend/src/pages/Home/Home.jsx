@@ -9,255 +9,270 @@
 // import useMovies from "../../hooks/useMovies";
 
 // const Home = () => {
-//   const {
-//     recommendations,
-//     topMovies,
-//     trendingMovies,
-//     loading,
-//     error,
-//     recommend,
-//     clearRecommendations, // We'll add this in useMovies
-//   } = useMovies();
 
-//   const [searchedMovie, setSearchedMovie] = useState("");
+//     const {
 
-//   // ---------------------------
-//   // Search Handler
-//   // ---------------------------
-//   const handleSearch = async (movie) => {
-//     if (!movie) return;
+//         recommendations,
 
-//     setSearchedMovie(movie);
+//         topMovies,
 
-//     await recommend(movie);
-//   };
+//         trendingMovies,
 
-//   // ---------------------------
-//   // Reset Home
-//   // ---------------------------
-//   const handleReset = () => {
-//     setSearchedMovie("");
+//         popularMovies,
 
-//     if (clearRecommendations) {
-//       clearRecommendations();
-//     }
-//   };
+//         upcomingMovies,
 
-//   return (
-//     <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+//         nowPlayingMovies,
 
-//       {/* ---------------- Navbar ---------------- */}
-//       <Navbar />
+//         loading,
 
-//       {/* ---------------- Hero ---------------- */}
-//       <section className="bg-gradient-to-r from-blue-700 via-purple-700 to-fuchsia-700 py-24">
+//         error,
 
-//         <div className="max-w-5xl mx-auto px-6 text-center">
+//         recommend,
 
-//           <motion.h1
-//             initial={{ opacity: 0, y: -30 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: .6 }}
-//             className="text-5xl md:text-6xl font-extrabold"
-//           >
-//             Find Your Next Favorite Movie
-//           </motion.h1>
+//         clearRecommendations,
 
-//           <motion.p
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             transition={{ delay: .3 }}
-//             className="mt-6 text-xl text-gray-200"
-//           >
-//             Search for any movie and receive AI-powered recommendations
-//             instantly.
-//           </motion.p>
+//     } = useMovies();
 
-//           <div className="mt-12">
-//             <SearchBar onSearch={handleSearch} />
-//           </div>
+//     const [searchedMovie, setSearchedMovie] = useState("");
+
+//     const handleSearch = async (movie) => {
+
+//         if (!movie) return;
+
+//         setSearchedMovie(movie);
+
+//         await recommend(movie);
+
+//     };
+
+//     const handleReset = () => {
+
+//         setSearchedMovie("");
+
+//         clearRecommendations();
+
+//     };
+
+//     return (
+
+//         <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+
+//             <Navbar />
+
+//             {/* Hero */}
+
+//             <section className="bg-gradient-to-r from-blue-700 via-purple-700 to-fuchsia-700 py-24">
+
+//                 <div className="max-w-5xl mx-auto px-6 text-center">
+
+//                     <motion.h1
+//                         initial={{ opacity: 0, y: -30 }}
+//                         animate={{ opacity: 1, y: 0 }}
+//                         transition={{ duration: .6 }}
+//                         className="text-5xl md:text-6xl font-extrabold"
+//                     >
+//                         Find Your Next Favorite Movie
+//                     </motion.h1>
+
+//                     <motion.p
+//                         initial={{ opacity: 0 }}
+//                         animate={{ opacity: 1 }}
+//                         transition={{ delay: .3 }}
+//                         className="mt-6 text-xl text-gray-300"
+//                     >
+//                         AI Powered Movie Recommendation System
+//                     </motion.p>
+
+//                     <div className="mt-12">
+
+//                         <SearchBar
+//                             onSearch={handleSearch}
+//                         />
+
+//                     </div>
+
+//                 </div>
+
+//             </section>
+
+//             <main className="flex-grow max-w-7xl mx-auto w-full px-6 py-12">
+
+//                 {/* Loading */}
+
+//                 {loading && (
+
+//                     <div className="text-center text-xl py-16">
+
+//                         Loading...
+
+//                     </div>
+
+//                 )}
+
+//                 {/* Error */}
+
+//                 {error && (
+
+//                     <div className="bg-red-600/20 border border-red-600 rounded-xl p-4 text-center mb-10">
+
+//                         {error}
+
+//                     </div>
+
+//                 )}
+
+//                 {/* Recommendation */}
+
+//                 {
+
+//                     recommendations.length > 0 && (
+
+//                         <motion.section
+
+//                             initial={{ opacity: 0 }}
+
+//                             animate={{ opacity: 1 }}
+
+//                         >
+
+//                             <div className="flex justify-between items-center mb-8">
+
+//                                 <div>
+
+//                                     <h2 className="text-4xl font-bold">
+
+//                                         🎯 Recommendations
+
+//                                     </h2>
+
+//                                     <p className="text-gray-400">
+
+//                                         Based on
+
+//                                         <span className="text-red-500">
+
+//                                             {" "}{searchedMovie}
+
+//                                         </span>
+
+//                                     </p>
+
+//                                 </div>
+
+//                                 <button
+
+//                                     onClick={handleReset}
+
+//                                     className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg"
+
+//                                 >
+
+//                                     Back Home
+
+//                                 </button>
+
+//                             </div>
+
+//                             <MovieGrid
+
+//                                 movies={recommendations}
+
+//                             />
+
+//                         </motion.section>
+
+//                     )
+
+//                 }
+
+//                 {/* Home Sections */}
+
+//                 {
+
+//                     recommendations.length === 0 && (
+
+//                         <>
+
+//                             <section className="mt-12">
+
+//                                 <h2 className="text-3xl font-bold mb-8">
+
+//                                     ⭐ Top Rated
+
+//                                 </h2>
+
+//                                 <MovieGrid movies={topMovies} />
+
+//                             </section>
+
+//                             <section className="mt-16">
+
+//                                 <h2 className="text-3xl font-bold mb-8">
+
+//                                     🔥 Trending
+
+//                                 </h2>
+
+//                                 <MovieGrid movies={trendingMovies} />
+
+//                             </section>
+
+//                             <section className="mt-16">
+
+//                                 <h2 className="text-3xl font-bold mb-8">
+
+//                                     🎬 Popular
+
+//                                 </h2>
+
+//                                 <MovieGrid movies={popularMovies} />
+
+//                             </section>
+
+//                             <section className="mt-16">
+
+//                                 <h2 className="text-3xl font-bold mb-8">
+
+//                                     🍿 Now Playing
+
+//                                 </h2>
+
+//                                 <MovieGrid movies={nowPlayingMovies} />
+
+//                             </section>
+
+//                             <section className="mt-16">
+
+//                                 <h2 className="text-3xl font-bold mb-8">
+
+//                                     🚀 Upcoming
+
+//                                 </h2>
+
+//                                 <MovieGrid movies={upcomingMovies} />
+
+//                             </section>
+
+//                         </>
+
+//                     )
+
+//                 }
+
+//             </main>
+
+//             <Footer />
 
 //         </div>
 
-//       </section>
+//     );
 
-//       {/* ---------------- Main ---------------- */}
-
-//       <main className="flex-grow max-w-7xl mx-auto w-full px-6 py-12">
-
-//         {/* Loading */}
-
-//         {loading && (
-
-//           <div className="text-center py-16 text-xl">
-
-//             Loading recommendations...
-
-//           </div>
-
-//         )}
-
-//         {/* Error */}
-
-//         {error && (
-
-//           <div className="bg-red-600/20 border border-red-500 rounded-xl p-5 text-center text-red-300">
-
-//             {error}
-
-//           </div>
-
-//         )}
-
-//         {/* Recommendations */}
-
-//         {!loading && recommendations.length > 0 && (
-
-//           <motion.section
-
-//             initial={{ opacity: 0, y: 30 }}
-
-//             animate={{ opacity: 1, y: 0 }}
-
-//             transition={{ duration: .5 }}
-
-//           >
-
-//             <div className="flex justify-between items-center mb-8">
-
-//               <div>
-
-//                 <h2 className="text-4xl font-bold">
-
-//                   🎯 Recommendations
-
-//                 </h2>
-
-//                 <p className="text-gray-400 mt-2">
-
-//                   Based on "
-
-//                   <span className="text-red-400 font-semibold">
-
-//                     {searchedMovie}
-
-//                   </span>
-
-//                   "
-
-//                 </p>
-
-//               </div>
-
-//               <button
-
-//                 onClick={handleReset}
-
-//                 className="
-
-//                 px-5
-
-//                 py-2
-
-//                 rounded-lg
-
-//                 bg-red-600
-
-//                 hover:bg-red-700
-
-//                 transition
-
-//                 "
-
-//               >
-
-//                 Back to Home
-
-//               </button>
-
-//             </div>
-
-//             <MovieGrid movies={recommendations} />
-
-//           </motion.section>
-
-//         )}
-
-//         {/* Empty State */}
-
-//         {!loading &&
-
-//           recommendations.length === 0 &&
-
-//           !searchedMovie && (
-
-//             <div className="text-center py-12">
-
-//               <div className="text-6xl mb-4">
-
-//                 🎬
-
-//               </div>
-
-//               <h2 className="text-2xl font-semibold">
-
-//                 Search your favourite movie
-
-//               </h2>
-
-//               <p className="text-gray-400 mt-3">
-
-//                 Our AI will recommend similar movies just for you.
-
-//               </p>
-
-//             </div>
-
-//           )}
-
-//         {/* Top Rated */}
-
-//         {!loading && recommendations.length === 0 && (
-
-//           <section className="mt-10">
-
-//             <h2 className="text-3xl font-bold mb-8">
-
-//               ⭐ Top Rated Movies
-
-//             </h2>
-
-//             <MovieGrid movies={topMovies} />
-
-//           </section>
-
-//         )}
-
-//         {/* Trending */}
-
-//         <section className="mt-16">
-
-//           <h2 className="text-3xl font-bold mb-8">
-
-//             🔥 Trending Movies
-
-//           </h2>
-
-//           <MovieGrid movies={trendingMovies} />
-
-//         </section>
-
-//       </main>
-
-//       {/* Footer */}
-
-//       <Footer />
-
-//     </div>
-//   );
 // };
 
 // export default Home;
+
+
 
 
 
@@ -266,8 +281,14 @@ import { motion } from "framer-motion";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import MovieGrid from "../../components/MovieGrid/MovieGrid";
+
+import Hero from "../../components/Hero/Hero";
+import FeaturedMovie from "../../components/FeaturedMovie/FeaturedMovie";
+import MovieSection from "../../components/MovieSection/MovieSection";
+
+import Loader from "../../components/Loader/Loader";
+import ErrorState from "../../components/ErrorState/ErrorState";
+import EmptyState from "../../components/EmptyState/EmptyState";
 
 import useMovies from "../../hooks/useMovies";
 
@@ -307,6 +328,11 @@ const Home = () => {
 
         await recommend(movie);
 
+        window.scrollTo({
+            top: 700,
+            behavior: "smooth",
+        });
+
     };
 
     const handleReset = () => {
@@ -315,107 +341,118 @@ const Home = () => {
 
         clearRecommendations();
 
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+
     };
 
     return (
 
-        <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+        <div className="min-h-screen bg-slate-950 text-white">
 
             <Navbar />
 
             {/* Hero */}
 
-            <section className="bg-gradient-to-r from-blue-700 via-purple-700 to-fuchsia-700 py-24">
+            <Hero
 
-                <div className="max-w-5xl mx-auto px-6 text-center">
+                onSearch={handleSearch}
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: -30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: .6 }}
-                        className="text-5xl md:text-6xl font-extrabold"
-                    >
-                        Find Your Next Favorite Movie
-                    </motion.h1>
+            />
 
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: .3 }}
-                        className="mt-6 text-xl text-gray-300"
-                    >
-                        AI Powered Movie Recommendation System
-                    </motion.p>
+            {/* Featured */}
 
-                    <div className="mt-12">
+            {
 
-                        <SearchBar
-                            onSearch={handleSearch}
-                        />
+                trendingMovies.length > 0 && (
 
-                    </div>
+                    <FeaturedMovie
 
-                </div>
+                        movie={trendingMovies[0]}
 
-            </section>
+                    />
 
-            <main className="flex-grow max-w-7xl mx-auto w-full px-6 py-12">
+                )
+
+            }
+
+            <main className="max-w-[1600px] mx-auto px-6 lg:px-10 py-16">
 
                 {/* Loading */}
 
-                {loading && (
+                {
 
-                    <div className="text-center text-xl py-16">
+                    loading && recommendations.length === 0 && (
 
-                        Loading...
+                        <Loader />
 
-                    </div>
+                    )
 
-                )}
+                }
 
                 {/* Error */}
 
-                {error && (
+                {
 
-                    <div className="bg-red-600/20 border border-red-600 rounded-xl p-4 text-center mb-10">
+                    error && (
 
-                        {error}
+                        <ErrorState
 
-                    </div>
+                            message={error}
 
-                )}
+                        />
 
-                {/* Recommendation */}
+                    )
+
+                }
+
+                {/* Recommendations */}
 
                 {
 
                     recommendations.length > 0 && (
 
-                        <motion.section
+                        <motion.div
 
-                            initial={{ opacity: 0 }}
+                            initial={{
 
-                            animate={{ opacity: 1 }}
+                                opacity: 0,
+
+                                y: 20,
+
+                            }}
+
+                            animate={{
+
+                                opacity: 1,
+
+                                y: 0,
+
+                            }}
 
                         >
 
-                            <div className="flex justify-between items-center mb-8">
+                            <div className="flex items-center justify-between mb-8">
 
                                 <div>
 
                                     <h2 className="text-4xl font-bold">
 
-                                        🎯 Recommendations
+                                        🎯 AI Recommendations
 
                                     </h2>
 
-                                    <p className="text-gray-400">
+                                    <p className="text-slate-400 mt-2">
 
                                         Based on
 
-                                        <span className="text-red-500">
+                                        <span className="text-red-500 font-semibold">
 
-                                            {" "}{searchedMovie}
+                                            {" "}
+
+                                            {searchedMovie}
 
                                         </span>
 
@@ -427,97 +464,120 @@ const Home = () => {
 
                                     onClick={handleReset}
 
-                                    className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg"
+                                    className="
+                                    px-6
+                                    py-3
+                                    rounded-xl
+                                    bg-red-600
+                                    hover:bg-red-700
+                                    transition
+                                    "
 
                                 >
 
-                                    Back Home
+                                    Back to Home
 
                                 </button>
 
                             </div>
 
-                            <MovieGrid
+                            <MovieSection
+
+                                title=""
 
                                 movies={recommendations}
 
                             />
 
-                        </motion.section>
+                        </motion.div>
 
                     )
 
                 }
 
-                {/* Home Sections */}
+                {/* Default Homepage */}
 
                 {
 
-                    recommendations.length === 0 && (
+                    recommendations.length === 0 && !loading && (
 
                         <>
 
-                            <section className="mt-12">
+                            <MovieSection
 
-                                <h2 className="text-3xl font-bold mb-8">
+                                title="⭐ Top Rated"
 
-                                    ⭐ Top Rated
+                                subtitle="Highest rated movies of all time"
 
-                                </h2>
+                                movies={topMovies}
 
-                                <MovieGrid movies={topMovies} />
+                            />
 
-                            </section>
+                            <MovieSection
 
-                            <section className="mt-16">
+                                title="🔥 Trending"
 
-                                <h2 className="text-3xl font-bold mb-8">
+                                subtitle="Most talked about this week"
 
-                                    🔥 Trending
+                                movies={trendingMovies}
 
-                                </h2>
+                            />
 
-                                <MovieGrid movies={trendingMovies} />
+                            <MovieSection
 
-                            </section>
+                                title="🎬 Popular"
 
-                            <section className="mt-16">
+                                subtitle="Popular across TMDB"
 
-                                <h2 className="text-3xl font-bold mb-8">
+                                movies={popularMovies}
 
-                                    🎬 Popular
+                            />
 
-                                </h2>
+                            <MovieSection
 
-                                <MovieGrid movies={popularMovies} />
+                                title="🍿 Now Playing"
 
-                            </section>
+                                subtitle="Currently in theatres"
 
-                            <section className="mt-16">
+                                movies={nowPlayingMovies}
 
-                                <h2 className="text-3xl font-bold mb-8">
+                            />
 
-                                    🍿 Now Playing
+                            <MovieSection
 
-                                </h2>
+                                title="🚀 Coming Soon"
 
-                                <MovieGrid movies={nowPlayingMovies} />
+                                subtitle="Upcoming blockbuster releases"
 
-                            </section>
+                                movies={upcomingMovies}
 
-                            <section className="mt-16">
-
-                                <h2 className="text-3xl font-bold mb-8">
-
-                                    🚀 Upcoming
-
-                                </h2>
-
-                                <MovieGrid movies={upcomingMovies} />
-
-                            </section>
+                            />
 
                         </>
+
+                    )
+
+                }
+
+                {/* Empty */}
+
+                {
+
+                    !loading &&
+
+                    !error &&
+
+                    recommendations.length === 0 &&
+
+                    topMovies.length === 0 && (
+
+                        <EmptyState
+
+                            title="No Movies Found"
+
+                            description="Try searching another movie."
+
+                        />
 
                     )
 
