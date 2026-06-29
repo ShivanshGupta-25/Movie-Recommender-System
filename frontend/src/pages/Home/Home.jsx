@@ -186,22 +186,17 @@ const Home = () => {
                                 </div>
 
                                 <button
-
                                     onClick={handleReset}
-
                                     className="
-                                    px-6
-                                    py-3
-                                    rounded-xl
-                                    bg-red-600
-                                    hover:bg-red-700
-                                    transition
+                                        px-6
+                                        py-3
+                                        rounded-xl
+                                        bg-red-600
+                                        hover:bg-red-700
+                                        transition
                                     "
-
                                 >
-
-                                    Back to Home
-
+                                    Clear Recommendations
                                 </button>
 
                             </div>
@@ -222,82 +217,56 @@ const Home = () => {
 
                 {/* Default Homepage */}
 
-                {
+                {!loading && (
 
-                    recommendations.length === 0 && !loading && (
+                    <>
 
-                        <>
+                        {/* Continue Watching */}
 
-                            {/* Continue Watching */}
-
-                            {
-                                recentMovies.length > 0 && (
-
-                                    <MovieSection
-                                        title="🕘 Continue Watching"
-                                        subtitle="Movies you recently viewed"
-                                        movies={recentMovies}
-                                        isRecentlyViewed
-                                    />
-
-                                )
-                            }
+                        {recentMovies.length > 0 && (
 
                             <MovieSection
-
-                                title="⭐ Top Rated"
-
-                                subtitle="Highest rated movies of all time"
-
-                                movies={topMovies}
-
+                                title="🕘 Continue Watching"
+                                subtitle="Movies you recently viewed"
+                                movies={recentMovies}
+                                isRecentlyViewed
                             />
 
-                            <MovieSection
+                        )}
 
-                                title="🔥 Trending"
+                        <MovieSection
+                            title="⭐ Top Rated"
+                            subtitle="Highest rated movies of all time"
+                            movies={topMovies}
+                        />
 
-                                subtitle="Most talked about this week"
+                        <MovieSection
+                            title="🔥 Trending"
+                            subtitle="Most talked about this week"
+                            movies={trendingMovies}
+                        />
 
-                                movies={trendingMovies}
+                        <MovieSection
+                            title="🎬 Popular"
+                            subtitle="Popular across TMDB"
+                            movies={popularMovies}
+                        />
 
-                            />
+                        <MovieSection
+                            title="🍿 Now Playing"
+                            subtitle="Currently in theatres"
+                            movies={nowPlayingMovies}
+                        />
 
-                            <MovieSection
+                        <MovieSection
+                            title="🚀 Coming Soon"
+                            subtitle="Upcoming blockbuster releases"
+                            movies={upcomingMovies}
+                        />
 
-                                title="🎬 Popular"
+                    </>
 
-                                subtitle="Popular across TMDB"
-
-                                movies={popularMovies}
-
-                            />
-
-                            <MovieSection
-
-                                title="🍿 Now Playing"
-
-                                subtitle="Currently in theatres"
-
-                                movies={nowPlayingMovies}
-
-                            />
-
-                            <MovieSection
-
-                                title="🚀 Coming Soon"
-
-                                subtitle="Upcoming blockbuster releases"
-
-                                movies={upcomingMovies}
-
-                            />
-
-                        </>
-
-                    )
-
-                }
+                )}
 
                 {/* Empty */}
 
