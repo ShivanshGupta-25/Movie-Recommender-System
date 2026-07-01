@@ -527,3 +527,7 @@ To install, run: pip install email-validator
 2026-07-01 19:05:22,393 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Cargo&include_adult=False
 2026-07-01 19:05:22,426 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Aliens&include_adult=False
 2026-07-01 19:05:22,439 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Star+Trek+Into+Darkness&include_adult=False
+2026-07-01 23:45:36,880 | INFO | movies.pkl already exists.
+2026-07-01 23:45:36,882 | INFO | similarity.pkl already exists.
+2026-07-01 23:45:38,051 | INFO | movies.pkl already exists.
+2026-07-01 23:45:38,051 | INFO | similarity.pkl already exists.

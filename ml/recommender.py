@@ -238,10 +238,9 @@ def download_model(file_id: str, filename: str):
     url = f"https://drive.google.com/uc?id={file_id}"
 
     gdown.download(
-        url,
-        str(path),
+        url=url,
+        output=str(path),
         quiet=False,
-        fuzzy=True,
     )
 
     logger.info(f"{filename} downloaded successfully.")
