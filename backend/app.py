@@ -25,9 +25,14 @@ Built using
     license_info={"name": "MIT"},
 )
 
+origins = [
+    "http://localhost:5173",                  # Local React app
+    "https://shivanshgupta25-movie-rs.vercel.app",  # Replace after deployment
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

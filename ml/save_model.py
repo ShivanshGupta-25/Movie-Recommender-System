@@ -1,13 +1,28 @@
 import pickle
+from pathlib import Path
 
 from train import train
 
+# Train the model
 movies, vectorizer, similarity = train()
 
-pickle.dump(movies, open("../models/movies.pkl", "wb"))
+# Project root
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-pickle.dump(vectorizer, open("../models/tfidf.pkl", "wb"))
+# Models directory
+MODEL_DIR = BASE_DIR / "models"
 
-pickle.dump(similarity, open("../models/similarity.pkl", "wb"))
+# Create models directory if it doesn't exist
+MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
-print("Models saved successfully")
+# Save models
+with open(MODEL_DIR / "movies.pkl", "wb") as f:
+    pickle.dump(movies, f)
+
+with open(MODEL_DIR / "tfidf.pkl", "wb") as f:
+    pickle.dump(vectorizer, f)
+
+with open(MODEL_DIR / "similarity.pkl", "wb") as f:
+    pickle.dump(similarity, f)
+
+print("✅ Models saved successfully!")
