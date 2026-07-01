@@ -10,3 +10,4 @@ cachetools
 requests
 python-dotenv
 pytest
+gdown
