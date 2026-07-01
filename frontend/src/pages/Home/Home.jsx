@@ -12,6 +12,8 @@ import Loader from "../../components/Loader/Loader";
 import ErrorState from "../../components/ErrorState/ErrorState";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import { useRecentlyViewedContext } from "../../Context/RecentlyViewedContext";
+import { useSearchHistoryContext } from "../../Context/SearchHistoryContext";
+import SearchHistoryList from "../../components/SearchHistoryList/SearchHistoryList";
 
 import useMovies from "../../hooks/useMovies";
 
@@ -44,6 +46,8 @@ const Home = () => {
     const [searchedMovie, setSearchedMovie] = useState("");
 
     const { recentMovies } = useRecentlyViewedContext();
+
+    const { history, clearHistory } = useSearchHistoryContext();
 
     const handleSearch = async (movie) => {
 
@@ -233,6 +237,22 @@ const Home = () => {
                             />
 
                         )}
+
+                        {
+                            history.length > 0 && (
+
+                                <SearchHistoryList
+
+                                    history={history}
+
+                                    onSearch={handleSearch}
+
+                                    onClear={clearHistory}
+
+                                />
+
+                            )
+                        }                        
 
                         <MovieSection
                             title="⭐ Top Rated"

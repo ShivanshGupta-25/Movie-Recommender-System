@@ -51,6 +51,12 @@ const Navbar = () => {
       icon: History,
       path: "/recently-viewed",
     },
+
+    {
+      title: "Search History",
+      icon: Search,
+      path: "/search-history",
+    }
   ];
 
   return (

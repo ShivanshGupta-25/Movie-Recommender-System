@@ -5,6 +5,7 @@ import MovieDetails from "../pages/MovieDetails/MovieDetails";
 import Favorites from "../pages/Favorites/Favorite";
 import Watchlist from "../pages/Watchlist/Watchlist";
 import RecentlyViewed from "../pages/RecentlyViewed/RecentlyViewed";
+import SearchHistory from "../pages/SearchHistory/SearchHistory";
 import NotFound from "../pages/NotFound/NotFound";
 
 const AppRoutes = () => {
@@ -23,6 +24,8 @@ const AppRoutes = () => {
                 <Route path="/watchlist" element={<Watchlist />} />
 
                 <Route path="/recently-viewed" element={<RecentlyViewed />} />
+
+                <Route path="/search-history" element={<SearchHistory />} />
 
                 <Route
                     path="*"

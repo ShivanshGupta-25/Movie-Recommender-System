@@ -3,6 +3,7 @@ import { Search, X, Loader2 } from "lucide-react";
 
 import useDebounce from "../../hooks/useDebounce";
 import SearchSuggestion from "./SearchSuggestion";
+import { useSearchHistoryContext } from "../../Context/SearchHistoryContext";
 import { searchMovies } from "../../services/movieApi";
 
 const SearchBar = ({ onSearch, onMovieSelect }) => {
@@ -16,6 +17,12 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
 
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
+
+  const { 
+    addSearch,
+    history,
+    clearHistory,
+   } = useSearchHistoryContext();
 
   // -------------------------
   // Search Suggestions
@@ -73,17 +80,24 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
   // Submit Search
   // -------------------------
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
     if (!query.trim()) return;
 
-    // Close suggestions
+    // Save to history
+    addSearch(query);
+
     setShowSuggestions(false);
+
     setSelectedIndex(-1);
 
     if (onSearch) {
+
       onSearch(query);
+
     }
+
   };
 
   // -------------------------
@@ -139,16 +153,28 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
   // Select Movie
   // -------------------------
   const handleMovieClick = (movie) => {
+
     setQuery(movie.title || "");
+
+    // Save to search history
+    addSearch(movie.title);
+
     setShowSuggestions(false);
 
+    setSelectedIndex(-1);
+
     if (onMovieSelect) {
+
       onMovieSelect(movie);
+
     }
 
     if (onSearch) {
+
       onSearch(movie.title);
+
     }
+
   };
 
   // -------------------------
@@ -195,6 +221,7 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
           type="text"
           value={query}
           placeholder="Search your favourite movie..."
+          onFocus={() => setShowSuggestions(true)}
           onChange={(e) => {
             setQuery(e.target.value);
             setShowSuggestions(true);
@@ -272,7 +299,7 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
         </button>
       </div>
 
-      {showSuggestions && query && (
+      {showSuggestions && (
         <div
           className="
           absolute
@@ -291,29 +318,79 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
         "
         >
           {loading ? (
+
             <div className="p-8 text-center text-gray-300">
               Searching...
             </div>
-          ) : movies.length ? (
-            movies.map((movie, index) => (
-              <div
-                key={movie.id ?? `${movie.title}-${index}`}
-                className={
-                  selectedIndex === index
-                    ? "bg-gray-700"
-                    : ""
-                }
-              >
-                <SearchSuggestion
-                  movie={movie}
-                  onClick={handleMovieClick}
-                />
+
+          ) : query ? (
+
+            movies.length ? (
+
+              movies.map((movie, index) => (
+
+                <div
+                  key={movie.id ?? `${movie.title}-${index}`}
+                  className={selectedIndex === index ? "bg-gray-700" : ""}
+                >
+
+                  <SearchSuggestion
+                    movie={movie}
+                    onClick={handleMovieClick}
+                  />
+
+                </div>
+
+              ))
+
+            ) : (
+
+              <div className="p-8 text-center text-gray-400">
+                No movies found
               </div>
+
+            )
+
+          ) : history.length ? (
+
+            history.map((item, index) => (
+
+              <button
+                key={index}
+                onClick={() => {
+                  setQuery(item);
+                  addSearch(item);
+                  onSearch(item);
+                  setShowSuggestions(false);
+                }}
+                className="
+                  w-full
+                  px-6
+                  py-4
+                  text-left
+                  hover:bg-gray-800
+                  transition
+                  text-white
+                  flex
+                  items-center
+                  gap-3
+                "
+              >
+
+                <Search size={16} />
+
+                {item}
+
+              </button>
+
             ))
+
           ) : (
-            <div className="p-8 text-center text-gray-400">
-              No movies found
+
+            <div className="p-8 text-center text-gray-500">
+              No recent searches
             </div>
+
           )}
         </div>
       )}

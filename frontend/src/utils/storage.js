@@ -196,3 +196,77 @@ export const clearRecentlyViewed = () => {
     localStorage.removeItem(RECENT_KEY);
 
 };
+
+/* ======================================
+        SEARCH HISTORY
+====================================== */
+
+const SEARCH_HISTORY_KEY = "movieai_search_history";
+
+export const getSearchHistory = () => {
+
+    try {
+
+        const data = localStorage.getItem(
+            SEARCH_HISTORY_KEY
+        );
+
+        return data ? JSON.parse(data) : [];
+
+    } catch {
+
+        return [];
+
+    }
+
+};
+
+export const saveSearchHistory = (history) => {
+
+    localStorage.setItem(
+
+        SEARCH_HISTORY_KEY,
+
+        JSON.stringify(history)
+
+    );
+
+};
+
+export const addSearchHistory = (query) => {
+
+    if (!query.trim()) {
+
+        return getSearchHistory();
+
+    }
+
+    let history = getSearchHistory();
+
+    history = history.filter(
+
+        item =>
+
+        item.toLowerCase() !== query.toLowerCase()
+
+    );
+
+    history.unshift(query);
+
+    history = history.slice(0, 10);
+
+    saveSearchHistory(history);
+
+    return history;
+
+};
+
+export const clearSearchHistory = () => {
+
+    localStorage.removeItem(
+
+        SEARCH_HISTORY_KEY
+
+    );
+
+};
