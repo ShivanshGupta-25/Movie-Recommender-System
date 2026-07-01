@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import { useFavoritesContext } from "../../Context/FavoritesContext";
@@ -19,45 +19,75 @@ import {
 } from "lucide-react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { favorites } = useFavoritesContext();
   const { watchlist } = useWatchlistContext();
   const { recentMovies } = useRecentlyViewedContext();
 
-  const navItems = [
-    {
-      title: "Home",
-      icon: House,
-      path: "/",
-    },
-    {
-      title: "Trending",
-      icon: Flame,
-      path: "/",
-    },
-    {
-      title: "Favorites",
-      icon: Heart,
-      path: "/favorites",
-    },
-    {
-      title: "Watchlist",
-      icon: Bookmark,
-      path: "/watchlist",
-    },
-    {
-      title: "Recent",
-      icon: History,
-      path: "/recently-viewed",
-    },
+const navItems = [
+  {
+    title: "Home",
+    icon: House,
+    action: "home",
+  },
+  {
+    title: "Trending",
+    icon: Flame,
+    action: "trending",
+  },
+  {
+    title: "Favorites",
+    icon: Heart,
+    path: "/favorites",
+  },
+  {
+    title: "Watchlist",
+    icon: Bookmark,
+    path: "/watchlist",
+  },
+  {
+    title: "Recent",
+    icon: History,
+    path: "/recently-viewed",
+  },
+  // {
+  //   title: "Search History",
+  //   icon: Search,
+  //   path: "/search-history",
+  // }
+];
 
-    {
-      title: "Search History",
-      icon: Search,
-      path: "/search-history",
-    }
-  ];
+const handleHomeClick = () => {
+  if (location.pathname === "/") {
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+      });
+  } else {
+      navigate("/");
+  }
+};
+
+const handleTrendingClick = () => {
+  if (location.pathname !== "/") {
+    navigate("/");
+
+    setTimeout(() => {
+      document
+        .getElementById("trending")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+
+    return;
+  }
+
+  document
+    .getElementById("trending")
+    ?.scrollIntoView({ behavior: "smooth" });
+};
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/70 border-b border-slate-800">
@@ -90,6 +120,38 @@ const Navbar = () => {
           {navItems.map((item) => {
             const Icon = item.icon;
 
+            if (item.action === "home") {
+              return (
+                <button
+                  key={item.title}
+                  onClick={handleHomeClick}
+                  className="group flex items-center gap-2 text-slate-300 hover:text-red-500 transition-all duration-300"
+                >
+                  <Icon
+                    size={20}
+                    className="group-hover:-translate-y-1 transition-transform"
+                  />
+                  {item.title}
+                </button>
+              );
+            }
+
+            if (item.action === "trending") {
+              return (
+                <button
+                  key={item.title}
+                  onClick={handleTrendingClick}
+                  className="group flex items-center gap-2 text-slate-300 hover:text-red-500 transition-all duration-300"
+                >
+                  <Icon
+                    size={20}
+                    className="group-hover:-translate-y-1 transition-transform"
+                  />
+                  {item.title}
+                </button>
+              );
+            }
+            
             return (
               <NavLink
                 key={item.title}
@@ -193,7 +255,7 @@ const Navbar = () => {
         {/* Right Side */}
         <div className="hidden lg:flex items-center gap-4">
 
-          <button className="w-11 h-11 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition">
+          {/* <button className="w-11 h-11 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition">
             <Search size={20} />
           </button>
 
@@ -203,7 +265,7 @@ const Navbar = () => {
 
           <button className="w-11 h-11 rounded-full bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center">
             <UserCircle2 size={24} />
-          </button>
+          </button> */}
 
         </div>
 
@@ -225,6 +287,37 @@ const Navbar = () => {
           {navItems.map((item) => {
             const Icon = item.icon;
 
+            if (item.action === "home") {
+              return (
+                  <button
+                      key={item.title}
+                      onClick={() => {
+                          handleHomeClick();
+                          setMobileOpen(false);
+                      }}
+                      className="w-full flex items-center gap-4 px-6 py-5 hover:bg-slate-800"
+                  >
+                      <Icon size={20} />
+                      {item.title}
+                  </button>
+              );
+          }
+
+          if (item.action === "trending") {
+              return (
+                  <button
+                      key={item.title}
+                      onClick={() => {
+                          handleTrendingClick();
+                          setMobileOpen(false);
+                      }}
+                      className="w-full flex items-center gap-4 px-6 py-5 hover:bg-slate-800"
+                  >
+                      <Icon size={20} />
+                      {item.title}
+                  </button>
+              );
+          }
             return (
               <NavLink
                 key={item.title}

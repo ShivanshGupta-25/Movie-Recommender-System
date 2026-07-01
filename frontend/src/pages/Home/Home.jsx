@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -42,6 +43,12 @@ const Home = () => {
         clearRecommendations,
 
     } = useMovies();
+
+    const location = useLocation();
+
+    const handleTrendingClick = () => {
+        navigate("/#trending");
+    };
 
     const [searchedMovie, setSearchedMovie] = useState("");
 
@@ -260,11 +267,13 @@ const Home = () => {
                             movies={topMovies}
                         />
 
-                        <MovieSection
-                            title="🔥 Trending"
-                            subtitle="Most talked about this week"
-                            movies={trendingMovies}
-                        />
+                        <section id="trending">
+                            <MovieSection
+                                title="🔥 Trending"
+                                subtitle="Most talked about this week"
+                                movies={trendingMovies}
+                            />
+                        </section>
 
                         <MovieSection
                             title="🎬 Popular"
