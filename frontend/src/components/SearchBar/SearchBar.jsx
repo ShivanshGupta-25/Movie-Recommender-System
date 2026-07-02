@@ -217,6 +217,7 @@ const SearchBar = ({ onSearch, onMovieSelect }) => {
         />
 
         <input
+          id="movie-search"
           ref={inputRef}
           type="text"
           value={query}

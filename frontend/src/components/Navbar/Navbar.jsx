@@ -255,6 +255,60 @@ const handleTrendingClick = () => {
         {/* Right Side */}
         <div className="hidden lg:flex items-center gap-4">
 
+          <button
+            onClick={() => {
+              // If we're not on Home, go there first
+              if (location.pathname !== "/") {
+                navigate("/");
+
+                setTimeout(() => {
+                  document
+                    .getElementById("hero-search")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+
+                  setTimeout(() => {
+                    document
+                      .getElementById("movie-search")
+                      ?.focus();
+                  }, 400);
+                }, 150);
+
+                return;
+              }
+
+              // Already on Home
+              document
+                .getElementById("hero-search")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center",
+                });
+
+              setTimeout(() => {
+                document
+                  .getElementById("movie-search")
+                  ?.focus();
+              }, 400);
+            }}
+            className="
+              w-11
+              h-11
+              rounded-full
+              bg-slate-800
+              hover:bg-red-600
+              transition-all
+              duration-300
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <Search size={20} />
+          </button>
+
           {/* <button className="w-11 h-11 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition">
             <Search size={20} />
           </button>

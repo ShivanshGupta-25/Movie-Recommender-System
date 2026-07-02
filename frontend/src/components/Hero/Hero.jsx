@@ -10,7 +10,10 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const Hero = ({ onSearch }) => {
   return (
-    <section className="relative overflow-hidden">
+    <section
+    id="hero-search"
+    className="relative overflow-hidden"
+>
 
       {/* Background */}
 

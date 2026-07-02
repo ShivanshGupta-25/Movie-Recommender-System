@@ -46,9 +46,32 @@ const Home = () => {
 
     const location = useLocation();
 
-    const handleTrendingClick = () => {
-        navigate("/#trending");
-    };
+        useEffect(() => {
+        if (!location.hash) return;
+
+        const element = document.querySelector(location.hash);
+
+        if (!element) return;
+
+        requestAnimationFrame(() => {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+
+            if (location.hash === "#hero-search") {
+                setTimeout(() => {
+                    document
+                        .getElementById("movie-search")
+                        ?.focus();
+                }, 400);
+            }
+        });
+    }, [location]);
+
+    // const handleTrendingClick = () => {
+    //     navigate("/#trending");
+    // };
 
     const [searchedMovie, setSearchedMovie] = useState("");
 
@@ -92,11 +115,9 @@ const Home = () => {
 
             {/* Hero */}
 
-            <Hero
-
-                onSearch={handleSearch}
-
-            />
+            <section id="hero-search">
+                <Hero onSearch={handleSearch} />
+            </section>
 
             {/* Featured */}
 

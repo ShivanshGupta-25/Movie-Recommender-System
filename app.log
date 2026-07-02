@@ -603,3 +603,5 @@ To install, run: pip install email-validator
 2026-07-02 13:58:25,767 | INFO | similarity.pkl already exists.
 2026-07-02 13:58:49,903 | INFO | movies.pkl already exists.
 2026-07-02 13:58:49,904 | INFO | similarity.pkl already exists.
+2026-07-02 13:58:51,698 | INFO | movies.pkl already exists.
+2026-07-02 13:58:51,698 | INFO | similarity.pkl already exists.
