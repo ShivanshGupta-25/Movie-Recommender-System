@@ -29,8 +29,8 @@ Unlike traditional recommendation systems, MovieAI enriches recommendations with
 # 🚀 Live Demo
 
 ### 🌐 Movie-AI Recommender System 
- -->shivanshgupta25-movie-rs.vercel.app
----
+[shivanshgupta25-movie-rs.vercel.app
+](https://shivanshgupta25-movie-rs.vercel.app/)---
 
 # ✨ Features
 
