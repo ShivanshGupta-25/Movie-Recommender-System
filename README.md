@@ -3,7 +3,7 @@
 # 🎬 MovieAI
 ### AI Powered Movie Recommendation System
 
-<img src="frontend/public/movieai-logo.png" width="140"/>
+<img src="frontend/public/MovieAI.png" width="140"/>
 
 Discover your next favorite movie using Machine Learning and Real-Time TMDB data.
 
