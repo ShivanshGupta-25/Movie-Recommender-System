@@ -22,8 +22,27 @@ def enrich_movie(movie):
 
     if not details:
         return {
-            **movie,
+            "id": None,
+            "title": movie["title"],
+            "overview": None,
+            "tagline": None,
             "poster": None,
+            "backdrop": None,
+            "rating": None,
+            "vote_count": None,
+            "release_date": None,
+            "runtime": None,
+            "status": None,
+            "language": None,
+            "homepage": None,
+            "budget": None,
+            "revenue": None,
+            "popularity": None,
+            "genres": [],
+            "production_companies": [],
+            "production_countries": [],
+            "spoken_languages": [],
+            "score": movie["score"],
         }
 
     details["score"] = movie["score"]

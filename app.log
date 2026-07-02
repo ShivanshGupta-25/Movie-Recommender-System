@@ -577,3 +577,29 @@ To install, run: pip install email-validator
 2026-07-02 01:09:03,860 | WARNING | TMDB lookup failed for 'Pet Sematary': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
 2026-07-02 01:09:04,389 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Star+Trek+Into+Darkness&include_adult=False
 2026-07-02 01:09:05,062 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Galaxy+Quest&include_adult=False
+2026-07-02 13:47:52,881 | INFO | movies.pkl already exists.
+2026-07-02 13:47:52,881 | INFO | similarity.pkl already exists.
+2026-07-02 13:47:56,493 | WARNING | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Thor%3A+The+Dark+World&include_adult=False
+2026-07-02 13:47:56,500 | WARNING | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Captain+America%3A+The+Winter+Soldier&include_adult=False
+2026-07-02 13:47:58,944 | WARNING | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Captain+America%3A+The+Winter+Soldier&include_adult=False
+2026-07-02 13:48:03,339 | WARNING | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Captain+America%3A+The+Winter+Soldier&include_adult=False
+2026-07-02 13:50:15,891 | INFO | movies.pkl already exists.
+2026-07-02 13:50:15,891 | INFO | similarity.pkl already exists.
+2026-07-02 13:50:18,933 | INFO | movies.pkl already exists.
+2026-07-02 13:50:18,934 | INFO | similarity.pkl already exists.
+2026-07-02 13:50:19,999 | INFO | movies.pkl already exists.
+2026-07-02 13:50:19,999 | INFO | similarity.pkl already exists.
+2026-07-02 13:50:20,580 | INFO | movies.pkl already exists.
+2026-07-02 13:50:20,580 | INFO | similarity.pkl already exists.
+2026-07-02 13:50:37,035 | WARNING | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Cargo&include_adult=False
+2026-07-02 13:50:37,037 | WARNING | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Guardians+of+the+Galaxy&include_adult=False
+2026-07-02 13:50:37,056 | WARNING | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /3/search/movie?api_key=b2f3fac9e39f31d45c2374d14b74579f&query=Alien&include_adult=False
+2026-07-02 13:50:37,385 | WARNING | TMDB lookup failed for 'Avatar': ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2026-07-02 13:58:02,356 | INFO | movies.pkl already exists.
+2026-07-02 13:58:02,357 | INFO | similarity.pkl already exists.
+2026-07-02 13:58:05,291 | INFO | movies.pkl already exists.
+2026-07-02 13:58:05,291 | INFO | similarity.pkl already exists.
+2026-07-02 13:58:25,766 | INFO | movies.pkl already exists.
+2026-07-02 13:58:25,767 | INFO | similarity.pkl already exists.
+2026-07-02 13:58:49,903 | INFO | movies.pkl already exists.
+2026-07-02 13:58:49,904 | INFO | similarity.pkl already exists.

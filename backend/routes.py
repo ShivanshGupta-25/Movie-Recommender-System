@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from backend.schemas import MovieResponse
-from ml.recommender import MovieRecommender
+# from ml.recommender import MovieRecommender
 from urllib.parse import unquote
 from backend.services.recommender_service import (
     get_recommendations,
@@ -11,6 +11,7 @@ from backend.services.recommender_service import (
     upcoming_movies,
     now_playing_movies,
     home_movies,
+    search_movies,
 )
 import time
 from backend.utils import cache_stats
@@ -18,7 +19,7 @@ from backend.utils import cache_stats
 router = APIRouter()
 
 # Load model only once when server starts
-recommender = MovieRecommender()
+# recommender = MovieRecommender()
 
 
 @router.get("/")
@@ -67,7 +68,7 @@ def home():
 @router.get("/search")
 def search(q: str):
 
-    return recommender.search(q)
+    return search_movies(q)
 
 
 @router.get("/movie/{title}")
